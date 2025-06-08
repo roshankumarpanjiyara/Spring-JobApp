@@ -8,12 +8,11 @@ import org.springframework.stereotype.Component;
 
 @Component
 @Aspect
-
 public class LoggingAspect {
 	
 	private static final Logger LOGGER = LoggerFactory.getLogger(LoggingAspect.class);
 	
-	@Before("execution(* com.example.jobAppRest.service.getJobById(..))")
+	@Before("execution(* com.example.jobAppRest.service.JobService.getJobById(..))")
 	public void logMethodCall() {
 		LOGGER.info("Method Called");
 	}

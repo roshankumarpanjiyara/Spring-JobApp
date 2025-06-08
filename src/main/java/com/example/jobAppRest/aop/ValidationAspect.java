@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 public class ValidationAspect {
 	private static final Logger LOGGER = LoggerFactory.getLogger(ValidationAspect.class);
 	
-	@Around("execution(* com.example.jobAppRest.service.getJobById(..)) && args(postId)")
+	@Around("execution(* com.example.jobAppRest.service.JobService.getJobById(..)) && args(postId)")
 	public Object validateAndUpdate(ProceedingJoinPoint jp, int postId) throws Throwable {
 		if(postId < 0) {
 			LOGGER.info("PostId is negative, updating it");
